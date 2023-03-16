@@ -14,6 +14,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import HomeScreen from './screens/HomeScreen';
 import TipsScreen from './screens/TipsScreen';
+import CalendarScreen from './screens/CalendarScreen';
 
 /*
 const UsersScreen = () => (
@@ -53,6 +54,13 @@ export default function App() {
       <Stack.Screen options={{headerShown: false}} name="HomeScreen" component={HomeScreen}/>
       <Stack.Screen name="TipsScreen" component={TipsScreen} style={styles.text} options={{
         title:'Skin Care Tips',
+        headerStyle: {
+          backgroundColor: "#F5CAC3",
+        },
+        headerTintColor: "white",
+      }} />
+        <Stack.Screen name="CalendarScreen" component={CalendarScreen} style={styles.text} options={{
+        title:'My Calendar',
         headerStyle: {
           backgroundColor: "#F5CAC3",
         },
