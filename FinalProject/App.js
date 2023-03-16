@@ -9,60 +9,19 @@ import { ApplicationProvider,
    } from '@ui-kitten/components';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import { NavigationContainer } from '@react-navigation/native';
-<<<<<<< HEAD
-import { default as theme } from './custom-theme.json';
-// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-// const { Navigator, Screen } = createBottomTabNavigator();
-
-
-=======
+import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
->>>>>>> 0eccbeb3 (Abbie 3/15 homescreen_edit)
+import HomeScreen from './screens/HomeScreen';
+import TipsScreen from './screens/TipsScreen';
 
-const HomeScreen = () => (
-  <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-    <View style = {styles.container}>
-      <Image style= {styles.image} source = {require("/Users/abbiemaemoto/Documents/GitHub/cs47_finalproject/FinalProject/assets/derma.jpeg")}/>
-      
-      <StatusBar style = "auto" />
-      <View style = {styles.inputView}>
-        <TextInput
-          style= {styles.TextInput}
-          placeholder="Email."
-          placeholderTextColor="$003f5c"
-          onChangeText={(email) => setEmail(email)}
-        />
-      </View>
-
-    <View style={styles.inputView}>
-      <TextInput 
-        style={styles.TextInput}
-        placeholder="Password."
-        placeholderTextColor = "#003f5c"
-        secureTextEntry={true}
-        onChangeText={(password) => setPassword(password)}
-      />
-    </View>
-
-    <TouchableOpacity>
-      <Text style={styles.forgot_button}>Forgot Password?</Text>
-    </TouchableOpacity>
-
-    <TouchableOpacity style={styles.loginBtn}>
-      <Text style={styles.loginText}>LOGIN</Text>
-    </TouchableOpacity>
-    </View>
-  </Layout>
-);
-
+/*
 const UsersScreen = () => (
   <Layout style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
     <Text category='h1'>USERS</Text>
   </Layout>
 );
-
+s
 const OrdersScreen = () => (
   <Layout style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
     <Text category='h1'>ORDERS</Text>
@@ -84,69 +43,41 @@ const TabNavigator = () => (
     <Screen name='Orders' component={OrdersScreen}/>
   </Navigator>
 );
+*/
 
-const AppNavigator = () => {
-  <NavigationContainer>
-    <TabNavigator/>
+const Stack = createStackNavigator();
+
+export default function App() {
+  return <NavigationContainer>
+    <Stack.Navigator style={styles.container}>
+      <Stack.Screen options={{headerShown: false}} name="HomeScreen" component={HomeScreen}/>
+      <Stack.Screen name="TipsScreen" component={TipsScreen} style={styles.text} options={{
+        title:'Skin Care Tips',
+        headerStyle: {
+          backgroundColor: "#F5CAC3",
+        },
+        headerTintColor: "white",
+      }} />
+    </Stack.Navigator>
   </NavigationContainer>
-};
+}
 
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "white",
+    justifyContent: "center",
+    alignItems: "center",
+    flex: 1,
+  },
+});
+
+/*
 export default () => (
   <>
     <IconRegistry icons={EvaIconsPack} />
-<<<<<<< HEAD
-    <ApplicationProvider {...eva} theme={{...eva.light, ...theme}}>
-      <Text>HOME</Text>
-=======
     <ApplicationProvider {...eva} theme={eva.light}>
-        const [email, setEmail] = useState("");
-        const [password, setPassword] = useState("");
->>>>>>> 0eccbeb3 (Abbie 3/15 homescreen_edit)
       <HomeScreen />
     </ApplicationProvider>
   </>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-
-  image :{
-    marginBottom: 40,
-  },
-
-  inputView: {
-    backgroundColor: "#FFC0CB",
-    borderRadius: 30,
-    width: "70%",
-    height: 45,
-    marginButton: 20,
-    alignItems: "center",
-  },
-
-  TextInput: {
-    height: 50,
-    flex: 1,
-    padding: 10,
-    marginLeft: 20,
-  },
-
-  forgot_button: {
-    height: 30,
-    marginBottom: 30,
-  },
-
-  loginBtn: {
-    width: "80%",
-    borderRadius: 25,
-    height: 50,
-    alignItems: "center",
-    justifyContent: "center",
-    marginTop: 40,
-    backgroundColor: "#FF1493",
-  },
-});
+*/

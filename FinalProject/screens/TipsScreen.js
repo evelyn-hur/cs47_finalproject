@@ -1,33 +1,8 @@
 import React from "react"
-import { StyleSheet, ScrollView, SafeAreaView } from "react-native";
-import WebView from "react-native-webview"
+import { StyleSheet, ScrollView, SafeAreaView, Header, Text, Image } from "react-native";
 
 export default function TipsScreen() {
-
+    <SafeAreaView>
+        <Text>Tips</Text>
+    </SafeAreaView>
 }
-
-
-
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      paddingTop: Constants.statusBarHeight,
-      backgroundColor: 'whitesmoke',
-      padding: 10,
-    },
-    titleRow: {
-      flexDirection: 'row',
-      padding: 20,
-      backgroundColor: 'lightblue',
-      justifyContent: 'center',
-      borderRadius: 10,
-      marginBottom: 8,
-    },
-    titleText: {
-      fontSize: 20,
-      fontWeight: 'bold',
-      textAlign: 'center',
-    },
-  });
-  
