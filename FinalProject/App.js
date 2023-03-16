@@ -8,6 +8,7 @@ import { ApplicationProvider,
   Text } from '@ui-kitten/components';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import { NavigationContainer } from '@react-navigation/native';
+import { default as theme } from './custom-theme.json';
 // import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // const { Navigator, Screen } = createBottomTabNavigator();
@@ -57,7 +58,8 @@ const AppNavigator = () => {
 export default () => (
   <>
     <IconRegistry icons={EvaIconsPack} />
-    <ApplicationProvider {...eva} theme={eva.light}>
+    <ApplicationProvider {...eva} theme={{...eva.light, ...theme}}>
+      <Text>HOME</Text>
       <HomeScreen />
     </ApplicationProvider>
   </>
